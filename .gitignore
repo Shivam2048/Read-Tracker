@@ -26,7 +26,7 @@ uploads/
 public/covers/
 
 # Optional: Postgres dump or backup files
-*.sql
+
 *.dump
 
 # VS Code settings (optional)
