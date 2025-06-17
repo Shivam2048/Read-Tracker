@@ -1,0 +1,28 @@
+{
+  "name": "read-tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shivam2048/Read-Tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shivam2048/Read-Tracker/issues"
+  },
+  "homepage": "https://github.com/Shivam2048/Read-Tracker#readme",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "pg": "^8.16.0"
+  }
+}
