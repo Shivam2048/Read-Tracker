@@ -18,14 +18,22 @@ const db = new Pool({
   port: 5432,
 });
 
+app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-db.query('SELECT NOW()', (err, res) => {
-  if (err) {
-    console.error('Database connection error', err);
-  } else {
-    console.log('Database connected:', res.rows);
-  }
+// db.query('SELECT NOW()', (err, res) => {
+//   if (err) {
+//     console.error('Database connection error', err);
+//   } else {
+//     console.log('Database connected:', res.rows);
+//   }
+// });
+
+app.get('/', (req,res) => {
+  res.render('index.ejs');
 });
 
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
+});

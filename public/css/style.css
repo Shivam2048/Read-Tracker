@@ -1,0 +1,88 @@
+body{
+    font-family: "Montserrat", sans-serif;
+    background-color: #FDF6EC;
+    overflow: scroll;
+}
+
+/* CSS of header */
+
+.h-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #FDF6EC; /* light beige */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+  height: 80px;
+}
+
+.h-right {
+  display: flex;
+  align-items: center;
+  gap: 45px;
+}
+
+.h-addBook {
+  display: flex;
+  align-items: center;
+  background-color: #5C80BC;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.h-addBook:hover {
+  background-color: #3F5D99;
+  transform: translateY(-2px);
+}
+
+.h-addBook:active {
+  transform: translateY(0);
+}
+
+.h-addBook i {
+  margin-left: 10px;
+}
+
+.h-sort select {
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.h-sort select:focus {
+  outline: none;
+  border-color: #5C80BC;
+  box-shadow: 0 0 5px rgba(92, 128, 188, 0.5);
+}
+
+.h-sort button {
+  padding: 10px 20px;
+  margin-left: 15px;
+  background-color: #5C80BC; /* same calm blue as add button */
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.h-sort button:hover {
+  background-color: #3F5D99; /* darker blue on hover */
+  transform: translateY(-2px);
+}
+
+.h-sort button:active {
+  transform: translateY(0);
+}
