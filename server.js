@@ -21,6 +21,10 @@ const db = new Pool({
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
+let users = [
+  { id: 1, title: "", author: "", cover_url: "", date_read: "", note: "", rating: "" },
+];
+
 
 // db.query('SELECT NOW()', (err, res) => {
 //   if (err) {
@@ -33,6 +37,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get('/', (req,res) => {
   res.render('index.ejs');
 });
+
+app.post('/add', (req,res) => {
+  
+})
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
