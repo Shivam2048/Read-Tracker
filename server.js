@@ -81,13 +81,12 @@ app.get('/', async (req,res) => {
   try {
     let query = `SELECT * FROM books ORDER BY ${By} ${Order}`;
     const result = await db.query(query);
+    Books= result.rows;
+    res.render('index.ejs',{Books});
   } catch (error) {
     console.log(error);
-  }
+  } 
 
-  Books = result.rows; 
-
-  res.render('index.ejs', Books);
 });
 
 app.post('/add', async (req,res) => {

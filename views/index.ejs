@@ -7,13 +7,42 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <%- include("partials/header.ejs"); %>
     <%- include("partials/popup.ejs"); %>
 
-    <div class="main">
-        
+    <div class="main-container">
+        <% if (Books.length === 0) { %>
+            <p class="no-books">No books added yet. Start adding some!</p>
+        <% }else{ %>
+                <div class="book-grid">
+                    <% Books.forEach(book => { %>
+                            <div class="book-card">
+                                <img src="https://covers.openlibrary.org/b/olid/<%= book.cover_edition_key %>-M.jpg" alt="Book cover">
+                                <h3><%= book.title %></h3>
+                                <p>by <%= book.author %></p>
+                                <p>Completed: <%= book.date_read.toISOString().split('T')[0] %></p>
+                                <div class="book-note">
+                                    <p><%= book.note %></p>
+                                </div>
+                                <p>Rating: <%= book.rating %> / 10</p>
+                                <div class="card-buttons">
+                                    <form action="/edit" method="POST" style="display: inline;">
+                                        <input type="hidden" name="id" value="<%= book.id %>">
+                                        <button type="submit">Edit</button>
+                                        </form>
+
+                                        <form action="/delete" method="POST" style="display: inline;">
+                                        <input type="hidden" name="id" value="<%= book.id %>">
+                                        <button type="submit">Delete</button>
+                                    </form>
+                                </div>
+                            </div>
+                    <% }); %>
+                </div>
+        <% } %>
     </div>
 
     <%- include("partials/footer.ejs"); %>

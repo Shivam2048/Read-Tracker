@@ -175,3 +175,85 @@ body{
 .popup-content button#cancelPopup:hover {
   background-color: #95a5a6;
 }
+
+/* main content style */
+
+.main-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.book-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.book-card {
+    background: #fff;
+    width: 350px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+}
+
+.book-card img {
+    width: 150px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.book-card h3 {
+    margin: 10px 0 5px 0;
+}
+
+.card-buttons {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.card-buttons button {
+    border: none;
+    background: #3498db;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.card-buttons button:hover {
+    background: #2980b9;
+}
+
+.no-books {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #555;
+  margin-top: 100px;
+}
+
+.book-note {
+  margin-top: 10px;
+  padding: 15px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: #333;
+  width: 100%;
+  box-sizing: border-box;
+  word-break: break-word;
+}
+
+

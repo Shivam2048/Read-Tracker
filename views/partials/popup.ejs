@@ -11,27 +11,28 @@
         <div class="popup-content">
             <h2 id="popupTitle">Add New Book</h2>
             <form id="bookForm" method="POST" action="/add">
-            <input type="hidden" id="bookId" name="id"> 
-            
+            <input type="hidden" id="bookId" name="id">
+
             <label>Title:</label>
-            <input type="text" name="title" required>
+            <input type="text" id="titleInput" name="title" required>
 
             <label>Author:</label>
-            <input type="text" name="author" required>
+            <input type="text" id="authorInput" name="author" required>
 
-            <label>Data of completion:</label>
-            <input type="date" name="DOC">
+            <label>Date of completion:</label>
+            <input type="date" id="dateInput" name="DOC">
 
             <label>Summary:</label>
-            <textarea name="summary" rows="4"></textarea>
+            <textarea id="summaryInput" name="summary" rows="4"></textarea>
 
             <label>Rating:</label>
-            <input type="number" name="rating" step="0.1" min="0" max="5">
+            <input type="number" id="ratingInput" name="rating" step="0.1" min="0" max="10">
 
-            <button type="submit">Save</button>
+            <button type="submit" id="submitBtn">Save</button>
             <button type="button" id="cancelPopup">Cancel</button>
             </form>
         </div>
     </div>
+
 </body>
 </html>
