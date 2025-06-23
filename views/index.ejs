@@ -19,7 +19,14 @@
         <% }else{ %>
                 <div class="book-grid">
                     <% Books.forEach(book => { %>
-                            <div class="book-card">
+                            <div class="book-card"
+                                data-id="<%= book.id %>"
+                                data-title="<%= book.title %>"
+                                data-author="<%= book.author %>"
+                                data-date="<%= book.date_read.toISOString().split('T')[0] %>"
+                                data-note="<%= book.note %>"
+                                data-rating="<%= book.rating %>">
+                                                            
                                 <img src="https://covers.openlibrary.org/b/olid/<%= book.cover_edition_key %>-M.jpg" alt="Book cover">
                                 <h3><%= book.title %></h3>
                                 <p>by <%= book.author %></p>
@@ -29,12 +36,9 @@
                                 </div>
                                 <p>Rating: <%= book.rating %> / 10</p>
                                 <div class="card-buttons">
-                                    <form action="/edit" method="POST" style="display: inline;">
-                                        <input type="hidden" name="id" value="<%= book.id %>">
-                                        <button type="submit">Edit</button>
-                                        </form>
+                                    <button class="edit-btn">Edit</button>
 
-                                        <form action="/delete" method="POST" style="display: inline;">
+                                    <form action="/delete" method="POST" style="display: inline;">
                                         <input type="hidden" name="id" value="<%= book.id %>">
                                         <button type="submit">Delete</button>
                                     </form>

@@ -115,7 +115,43 @@ app.post('/add', async (req,res) => {
     console.log(err);
     res.status(500).send("Error inserting data");
   }
-})
+});
+
+app.post('/edit', async (req, res) => {
+  const id = req.body.id;
+  let title = req.body.title;
+  let author = req.body.author;
+  const dateRead = req.body.DOC;
+  const note = req.body.summary.trim();
+  const rating = req.body.rating;
+
+  title = capitalizeName(title);
+  author = capitalizeName(author);
+
+  try {
+    await db.query(
+      `UPDATE books 
+       SET title = $1, author = $2, date_read = $3, note = $4, rating = $5 
+       WHERE id = $6`,
+      [title, author, dateRead, note, rating, id]
+    );
+
+    res.redirect("/");
+  } catch (error) {
+    console.error("Error updating book:", error);
+    res.status(500).send("Error updating book.");
+  }
+});
+
+app.post('/delete', async (req, res) => {
+  const id = req.body.id;
+  try {
+    await db.query("DELETE FROM books WHERE id = $1", [id]);
+    res.redirect("/");
+  } catch (err) {
+    console.log(err);
+  }
+});
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
