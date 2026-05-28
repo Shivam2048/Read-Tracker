@@ -66,26 +66,36 @@ async function findOlid(tit, aut){
 //   }
 // });
 
-app.get('/', async (req,res) => {
-  let Books = [];
-  let By = "date_read";
-  let Order= "ASC";
+app.get('/', async (req, res) => {
 
-  if(req.query.sort){
-    By= req.query.sort;
-    if(By == "date_read" || By == "rating"){
-      Order = "DESC";
+    let Books = [];
+    let By = "date_read";
+    let Order = "ASC";
+
+    if (req.query.sort) {
+        By = req.query.sort;
+
+        if (By == "date_read" || By == "rating") {
+            Order = "DESC";
+        }
     }
-  }
 
-  try {
-    let query = `SELECT * FROM books ORDER BY ${By} ${Order}`;
-    const result = await db.query(query);
-    Books= result.rows;
-    res.render('index.ejs',{Books});
-  } catch (error) {
-    console.log(error);
-  } 
+    try {
+
+        let query = `SELECT * FROM books ORDER BY ${By} ${Order}`;
+
+        const result = await db.query(query);
+
+        Books = result.rows;
+
+        res.render('index.ejs', {
+          Books,
+          currentSort: By
+        });
+
+    } catch (error) {
+        console.log(error);
+    }
 
 });
 

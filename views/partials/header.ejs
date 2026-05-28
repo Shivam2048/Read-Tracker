@@ -24,9 +24,17 @@
             <div class="h-sort">
                 <form action="/" method="get">
                     <select name="sort">
-                        <option value="title">Sort by Title</option>
-                        <option value="rating">Sort by Rating</option>
-                        <option value="date_read">Sort by Recency</option>
+                        <option value="title" <%= currentSort === "title" ? "selected" : "" %>>
+                            Sort by Title
+                        </option>
+
+                        <option value="rating" <%= currentSort === "rating" ? "selected" : "" %>>
+                            Sort by Rating
+                        </option>
+
+                        <option value="date_read" <%= currentSort === "date_read" ? "selected" : "" %>>
+                            Sort by Recency
+                        </option>
                     </select>
                     <button type="submit">sort</button>
                 </form>
